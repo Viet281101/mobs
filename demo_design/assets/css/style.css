@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@font-face {font-family:'Pixellari';src: url("../font/Pixellari.ttf") format("truetype");}
+* {font-family: 'Pixellari', sans-serif;}
+.neon-text { text-shadow: 0 0 5px #3ac8f2; }
+.neon-text:hover { animation: neon-glow 1.5s infinite alternate; }
+.neon-text:active { box-shadow: 0 0 10px aqua, 0 0 20px aqua, 0 0 30px aqua, 0 0 40px aqua; border-radius: 40%; }
+@keyframes neon-glow {
+	0%, 100% { text-shadow: 0 0 4px #3ac8f2, 0 0 10px #3ac8f2, 0 0 20px #3ac8f2, 0 0 40px #16cfd9, 0 0 80px #16cfd9, 0 0 90px #16cfd9, 0 0 100px #16cfd9, 0 0 150px #16cfd9; }
+	50% { text-shadow: 0 0 2px #3ac8f2, 0 0 5px #3ac8f2, 0 0 10px #3ac8f2, 0 0 20px #16cfd9, 0 0 40px #16cfd9, 0 0 45px #16cfd9, 0 0 50px #16cfd9, 0 0 75px #16cfd9; }
+}
+/* Header Section */
+.header {
+	background-color: rgb(31, 41, 55);
+	color: #01D9FF;
+	font-family: 'Pixellari', sans-serif;
+}
+.top-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+	background-color: #384d5f;
+}
+.logo { height: 48px; }
+.project-name {
+	position: relative;
+	top: -22px;
+	margin-left: 10px;
+	font-size: 36px;
+}
+.subname {
+	position: relative;
+	top: 0;
+	right: 100px;
+	font-size: 16px;
+}
+/* Search Container */
+.search-container {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 550px;
+}
+.search-icon {
+	position: absolute;
+	left: 10px;
+	height: 16px;
+	width: 16px;
+	pointer-events: none;
+}
+.search-bar {
+	flex: 1;
+	padding: 5px 10px 5px 30px;
+	border: 1px solid #01D9FF;
+	border-radius: 5px 0 0 5px;
+	background-color: transparent;
+	color: #01D9FF;
+	outline: none;
+	height: 36px;
+	font-size: 14px;
+}
+.search-btn {
+	padding: 5px 15px;
+	border: none;
+	border-radius: 0 5px 5px 0;
+	background-color: #01D9FF;
+	color: rgb(31, 41, 55);
+	cursor: pointer;
+	font-family: 'Pixellari', sans-serif;
+	height: 48px;
+	font-size: 14px;
+}
+.search-btn:hover {
+	background-color: #3ac8f2;
+}
+/* Conatiners */
+.right, .left {
+	padding: 0 60px;
+}
+.left {
+	text-decoration: none;
+	color: #01D9FF;
+}
+.right {
+	position: relative;
+	right: 50px;
+}
+.icon-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-left: 10px;
+}
+.icon-btn img {
+	height: 32px;
+	width: 32px;
+}
+.language-select {
+	position: relative;
+	top: -12px;
+	height: 32px;
+	margin-left: 10px;
+	padding: 0 10px;
+	border-radius: 5px;
+	border: 1px solid #01D9FF;
+	background-color: transparent;
+	color: #01D9FF;
+}
+
+/* Bottom Header Bar */
+.bottom-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 80px;
+	margin-top: 80px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.navigation { display: flex; gap: 30px; }
+.nav-link {
+	text-decoration: none;
+	color: #01D9FF;
+	font-size: 18px;
+}
+.current-time { font-size: 16px; }
+
+
