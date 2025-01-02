@@ -1,4 +1,8 @@
-# **MOBS** -- Market Online Book Shop
+# MOBS Demo
 
-Website specializing in selling programming and computer books
+HTML, CSS, JS
 
+- Run & debug:
+```bash
+python3 -m http.server 7777
+```
