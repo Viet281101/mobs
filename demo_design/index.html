@@ -15,9 +15,9 @@
 		<!-- Top Header Bar -->
 		<div class="top-header">
 			<a href="#" class="left">
-				<img src="./assets/logo.png" alt="MOBS Logo" class="logo">
+				<img src="./assets/images/icons/bookstore.png" alt="MOBS Logo" class="logo">
 				<span class="project-name">MOBS</span>
-				<span class="subname">Market Online Book Shop</span>
+				<span class="subname">Market Online Book Store</span>
 			</a>
 			<div class="center">
 				<div class="search-container">
@@ -32,15 +32,14 @@
 					<option value="vi">VI</option>
 					<option value="fr">FR</option>
 				</select>
-				<button class="icon-btn">
+				<button class="icon-btn cart-btn">
 					<img src="./assets/images/icons/cart.png" alt="Cart">
 				</button>
-				<button class="icon-btn">
+				<button class="icon-btn user-btn">
 					<img src="./assets/images/icons/user.png" alt="User">
 				</button>
 			</div>
 		</div>
-
 		<!-- Bottom Header Bar -->
 		<div class="bottom-header">
 			<nav class="navigation">
@@ -52,9 +51,30 @@
 			</nav>
 			<div class="current-time neon-text" id="current-time"></div>
 		</div>
+		<!-- Hamburger Menu Overlay -->
+		<div id="hamburgerMenu" class="overlay">
+			<button class="closebtn">
+				<img src="./assets/images/icons/x_close.png" alt="Close Menu">
+			</button>
+			<div class="overlay-content">
+				<a href="#">Home</a>
+				<a href="./shop.html">Shop</a>
+				<a href="#">Blogs</a>
+				<a href="#">Pages</a>
+				<a href="#">Contact</a>
+			</div>
+		</div>
+		<!-- Hamburger Icon -->
+		<button id="hamburgerIcon" class="hamburger">
+			<img src="./assets/images/icons/menu.png" alt="Menu">
+		</button>
 	</header>
 
-	<script type="module" src="./assets/js/main.js"></script>
+	<script type="module">
+		import { toggleMenu } from './assets/js/main.js';
+		document.getElementById('hamburgerIcon').addEventListener('click', toggleMenu);
+		document.querySelector('.closebtn').addEventListener('click', toggleMenu);
+	</script>	
 	<noscript>Your browser does not support JavaScript!</noscript>
 </body>
 </html>
