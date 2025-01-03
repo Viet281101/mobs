@@ -62,6 +62,73 @@ export function handleResize() {
 	}
 };
 
+// Function to render books from JSON
+export function renderBooks() {
+	const booksContainer = document.getElementById("books-container");
+
+	fetch("./assets/js/bestselling_books.json")
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error("Failed to load books.json");
+		}
+		return response.json();
+	})
+	.then((books) => {
+		books.forEach((book) => {
+			const ratingStars = Array(book.rating)
+				.fill('<img src="./assets/images/icons/star.png" alt="Star" class="star">')
+				.join("");
+
+			const bookElement = `
+				<div class="book">
+					<img src="${book.path}" alt="${book.name}" class="book-image">
+					<h3 class="book-title">${book.name}</h3>
+					<p class="book-author">By: ${book.author}</p>
+					<div class="rating">${ratingStars}</div>
+					<p class="book-price">${book.price}</p>
+					<button class="btn btn-primary">Add to Cart</button>
+				</div>
+			`;
+			booksContainer.innerHTML += bookElement;
+		});
+	})
+	.catch((error) => { console.error("Error loading books:", error); });
+};
+
+// Function to render new arrivals
+export function renderNewArrivals() {
+	const newArrivalsContainer = document.getElementById("new-arrivals-container");
+
+	fetch("./assets/js/new_arrival_books.json")
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error("Failed to load books.json");
+		}
+		return response.json();
+	})
+	.then((books) => {
+		books.slice(0, 5).forEach((book) => {
+			const ratingStars = Array(book.rating)
+				.fill('<img src="./assets/images/icons/star.png" alt="Star" class="star">')
+				.join("");
+
+			const bookElement = `
+				<div class="book">
+					<img src="${book.path}" alt="${book.name}" class="book-image">
+					<h3 class="book-title">${book.name}</h3>
+					<p class="book-author">By: ${book.author}</p>
+					<div class="rating">${ratingStars}</div>
+					<p class="book-price">${book.price}</p>
+					<button class="btn btn-primary">Add to Cart</button>
+				</div>
+			`;
+			newArrivalsContainer.innerHTML += bookElement;
+		});
+	})
+	.catch((error) => { console.error("Error loading new arrivals:", error); });
+};
+
+
 // Initialize the script
 function init() {
 	// Update the current time every second
@@ -73,6 +140,11 @@ function init() {
 
 	// Check initial screen size
 	handleResize();
+
+	// Call renderBooks to display the books
+	renderBooks();
+	// Call renderNewArrivals to display the books
+	renderNewArrivals();
 };
 
 // Run initialization
