@@ -115,6 +115,16 @@
 		</section>
 	</main>
 
+	<!-- Cart Modal -->
+	<div id="cartModal" class="modal">
+		<div class="modal-content">
+			<img src="./assets/images/icons/x_close.png" alt="Close" class="close-btn" id="closeModal">
+			<h2>Login Required</h2>
+			<p>You need to log in or register to add items to your cart.</p>
+			<a href="./login.html" class="modal-btn">Login/Register</a>
+		</div>
+	</div>
+
 	<!-- Footer -->
 	<footer class="footer">
 		<div class="footer-top">
@@ -128,12 +138,12 @@
 				<div class="footer-column">
 					<h3>Category</h3>
 					<ul>
-						<li><a href="#">Programming</a></li>
-						<li><a href="#">Algorithms</a></li>
-						<li><a href="#">AI & Machine Learning</a></li>
-						<li><a href="#">Databases</a></li>
-						<li><a href="#">Security</a></li>
-						<li><a href="#">Tech Research</a></li>
+						<li><a href="./shop.html">Programming</a></li>
+						<li><a href="./shop.html">Algorithms</a></li>
+						<li><a href="./shop.html">AI & Machine Learning</a></li>
+						<li><a href="./shop.html">Databases</a></li>
+						<li><a href="./shop.html">Security</a></li>
+						<li><a href="./shop.html">Tech Research</a></li>
 					</ul>
 				</div>
 				<div class="footer-column">
@@ -173,10 +183,11 @@
 	</footer>
 
 	<script type="module">
-		import { toggleMenu } from './assets/js/shop.js';
+		import { toggleMenu } from './assets/js/main.js';
 		document.getElementById('hamburgerIcon').addEventListener('click', toggleMenu);
 		document.querySelector('.closebtn').addEventListener('click', toggleMenu);
 	</script>
+	<script type="module" src="./assets/js/shop.js"></script>
 	<noscript>Your browser does not support JavaScript!</noscript>
 </body>
 </html>
