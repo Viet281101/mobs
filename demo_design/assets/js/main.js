@@ -62,6 +62,87 @@ export function handleResize() {
 	}
 };
 
+// Check if user is logged in
+export function handleUserIconClick() {
+	// Simulating login check (Replace with real authentication logic)
+	const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+
+	if (isLoggedIn) {
+		// Redirect to profile page
+		window.location.href = './profile.html';
+	} else {
+		// Redirect to login/register page
+		window.location.href = './login.html';
+	}
+};
+
+// Function to render books from JSON
+export function renderBooks() {
+	const booksContainer = document.getElementById("books-container");
+
+	fetch("./assets/js/bestselling_books.json")
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error("Failed to load books.json");
+		}
+		return response.json();
+	})
+	.then((books) => {
+		books.forEach((book) => {
+			const ratingStars = Array(book.rating)
+				.fill('<img src="./assets/images/icons/star.png" alt="Star" class="star">')
+				.join("");
+
+			const bookElement = `
+				<a href="${book.detailPage}" style="text-decoration: none;" class="book">
+					<img src="${book.path}" alt="${book.name}" class="book-image">
+					<h3 class="book-title">${book.name}</h3>
+					<p class="book-author">By: ${book.author}</p>
+					<div class="rating">${ratingStars}</div>
+					<p class="book-price">${book.price}</p>
+					<button class="btn btn-primary">Add to Cart</button>
+				</a>
+			`;
+			booksContainer.innerHTML += bookElement;
+		});
+	})
+	.catch((error) => { console.error("Error loading books:", error); });
+};
+
+// Function to render new arrivals
+export function renderNewArrivals() {
+	const newArrivalsContainer = document.getElementById("new-arrivals-container");
+
+	fetch("./assets/js/new_arrival_books.json")
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error("Failed to load books.json");
+		}
+		return response.json();
+	})
+	.then((books) => {
+		books.slice(0, 5).forEach((book) => {
+			const ratingStars = Array(book.rating)
+				.fill('<img src="./assets/images/icons/star.png" alt="Star" class="star">')
+				.join("");
+
+			const bookElement = `
+				<a href="${book.detailPage}" style="text-decoration: none;" class="book">
+					<img src="${book.path}" alt="${book.name}" class="book-image">
+					<h3 class="book-title">${book.name}</h3>
+					<p class="book-author">By: ${book.author}</p>
+					<div class="rating">${ratingStars}</div>
+					<p class="book-price">${book.price}</p>
+					<button class="btn btn-primary">Add to Cart</button>
+				</a>
+			`;
+			newArrivalsContainer.innerHTML += bookElement;
+		});
+	})
+	.catch((error) => { console.error("Error loading new arrivals:", error); });
+};
+
+
 // Initialize the script
 function init() {
 	// Update the current time every second
@@ -73,6 +154,34 @@ function init() {
 
 	// Check initial screen size
 	handleResize();
+
+	// Handle cart button click
+	document.querySelector('.cart-btn').addEventListener('click', () => {
+		const modal = document.getElementById('cartModal');
+		modal.style.display = 'block';
+	});
+
+	// Handle close modal
+	document.getElementById('closeModal').addEventListener('click', () => {
+		const modal = document.getElementById('cartModal');
+		modal.style.display = 'none';
+	});
+
+	// Close modal when clicking outside of it
+	window.addEventListener('click', (event) => {
+		const modal = document.getElementById('cartModal');
+		if (event.target === modal) {
+			modal.style.display = 'none';
+		}
+	});
+
+	// Add event listener for user icon
+	document.querySelector('.user-btn').addEventListener('click', handleUserIconClick);
+
+	// Call renderBooks to display the books
+	renderBooks();
+	// Call renderNewArrivals to display the books
+	renderNewArrivals();
 };
 
 // Run initialization

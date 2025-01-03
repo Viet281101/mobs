@@ -14,7 +14,7 @@
 	<header class="header">
 		<!-- Top Header Bar -->
 		<div class="top-header">
-			<a href="#" class="left">
+			<a href="./index.html" class="left">
 				<img src="./assets/images/icons/bookstore.png" alt="MOBS Logo" class="logo">
 				<span class="project-name">MOBS</span>
 				<span class="subname">Market Online Book Store</span>
@@ -43,7 +43,7 @@
 		<!-- Bottom Header Bar -->
 		<div class="bottom-header">
 			<nav class="navigation">
-				<a href="#" class="nav-link neon-text">Home</a>
+				<a href="./index.html" class="nav-link neon-text">Home</a>
 				<a href="./shop.html" class="nav-link neon-text">Shop</a>
 				<a href="#" class="nav-link neon-text">Blogs</a>
 				<a href="#" class="nav-link neon-text">Pages</a>
@@ -121,6 +121,14 @@
 		</div>
 	</section>
 
+	<section class="bestselling-books">
+		<div class="section-header">
+			<h2 class="section-title neon-text">Current Bestselling Books</h2>
+			<a href="./shop.html" class="btn btn-secondary neon-text">Browse All</a>
+		</div>
+		<div class="books" id="books-container"></div>
+	</section>
+
 	<section class="featured-categories">
 		<h2 class="section-title neon-text">Explore Categories</h2>
 		<div class="categories">
@@ -151,50 +159,111 @@
 		</div>
 	</section>
 
-	<section class="bestsellers">
-		<h2 class="section-title neon-text">Current Bestselling Books</h2>
-		<div class="books">
-			<div class="book">
-				<img src="./assets/images/books/book1.jpg" alt="Book 1">
-				<h3>The Great Gatsby</h3>
-				<p>F. Scott Fitzgerald</p>
-				<span>$10.99</span>
-				<button class="btn btn-primary">Add to Cart</button>
+	<section class="new-arrivals">
+		<div class="section-header">
+			<h2 class="section-title neon-text">New Arrivals</h2>
+			<a href="./shop.html" class="btn neon-text btn-secondary">View All</a>
+		</div>
+		<div class="books" id="new-arrivals-container"></div>
+	</section>
+
+	<section class="features">
+		<div class="features-container">
+			<div class="feature">
+				<img src="./assets/images/tags/delivery_box.png" alt="Fast Delivery">
+				<h3>FAST DELIVERY</h3>
+				<p>Free standard delivery</p>
 			</div>
-			<div class="book">
-				<img src="./assets/images/books/book2.jpg" alt="Book 2">
-				<h3>Clean Code</h3>
-				<p>Robert C. Martin</p>
-				<span>$39.99</span>
-				<button class="btn btn-primary">Add to Cart</button>
+			<div class="feature">
+				<img src="./assets/images/tags/gift_box.png" alt="Best Prices & Offers">
+				<h3>BEST PRICES & OFFERS</h3>
+				<p>Multiple gift available</p>
 			</div>
-			<div class="book">
-				<img src="./assets/images/books/book3.jpg" alt="Book 3">
-				<h3>Artificial Intelligence</h3>
-				<p>Stuart Russell</p>
-				<span>$45.00</span>
-				<button class="btn btn-primary">Add to Cart</button>
+			<div class="feature">
+				<img src="./assets/images/tags/affordable.png" alt="Great Daily Deal">
+				<h3>GREAT DAILY DEAL</h3>
+				<p>Orders $50 or more</p>
 			</div>
-			<div class="book">
-				<img src="./assets/images/books/book4.jpg" alt="Book 4">
-				<h3>Deep Learning</h3>
-				<p>Ian Goodfellow</p>
-				<span>$55.00</span>
-				<button class="btn btn-primary">Add to Cart</button>
+			<div class="feature">
+				<img src="./assets/images/tags/shopping.png" alt="Click & Collect">
+				<h3>CLICK & COLLECT</h3>
+				<p>Check your local stores now</p>
 			</div>
 		</div>
 	</section>
 
+	<!-- Cart Modal -->
+	<div id="cartModal" class="modal">
+		<div class="modal-content">
+			<img src="./assets/images/icons/x_close.png" alt="Close" class="close-btn" id="closeModal">
+			<h2>Login Required</h2>
+			<p>You need to log in or register to add items to your cart.</p>
+			<a href="./login.html" class="modal-btn">Login/Register</a>
+		</div>
+	</div>
+
 	<!-- Footer -->
 	<footer class="footer">
-
+		<div class="footer-top">
+			<div class="footer-about">
+				<img src="./assets/images/icons/bookstore.png" alt="MOBS Logo" class="footer-logo">
+				<p><a href="./index.html" class="neon-text" style="color: aqua; text-decoration: none;">MOBS</a> brings tech enthusiasts and developers together by offering curated books and resources in programming, algorithms, AI, and more.</p>
+				<p><strong>+84 - 1800 - 4635</strong></p>
+				<p>contact@mobs.com</p>
+			</div>
+			<div class="footer-links">
+				<div class="footer-column">
+					<h3>Category</h3>
+					<ul>
+						<li><a href="./shop.html">Programming</a></li>
+						<li><a href="./shop.html">Algorithms</a></li>
+						<li><a href="./shop.html">AI & Machine Learning</a></li>
+						<li><a href="./shop.html">Databases</a></li>
+						<li><a href="./shop.html">Security</a></li>
+						<li><a href="./shop.html">Tech Research</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h3>Useful Links</h3>
+					<ul>
+						<li><a href="#">Secure Shopping</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms of Use</a></li>
+						<li><a href="#">Shipping Policy</a></li>
+						<li><a href="#">Returns Policy</a></li>
+						<li><a href="#">Payment Options</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h3>Explore</h3>
+					<ul>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Store Locator</a></li>
+						<li><a href="#">Tech Blogs</a></li>
+						<li><a href="#">FAQs</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h3>Get In Touch</h3>
+					<ul>
+						<li><a href="#">Careers</a></li>
+						<li><a href="#">Become a Partner</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p>&copy; 2025 MOBS. All rights reserved.</p>
+			<img src="./assets/images/payment_methods.png" alt="Payment Methods">
+		</div>
 	</footer>
 
 	<script type="module">
 		import { toggleMenu } from './assets/js/main.js';
 		document.getElementById('hamburgerIcon').addEventListener('click', toggleMenu);
 		document.querySelector('.closebtn').addEventListener('click', toggleMenu);
-	</script>	
+	</script>
 	<noscript>Your browser does not support JavaScript!</noscript>
 </body>
 </html>
