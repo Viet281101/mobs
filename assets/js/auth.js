@@ -34,12 +34,21 @@ document.getElementById('loginForm').addEventListener('submit', (event) => {
 document.getElementById('registerForm').addEventListener('submit', (event) => {
 	event.preventDefault();
 	const name = document.getElementById('registerName').value;
+	const username = document.getElementById('registerUsername').value;
+	const phone = document.getElementById('registerPhone').value;
 	const email = document.getElementById('registerEmail').value;
 	const password = document.getElementById('registerPassword').value;
 
+	// Validate phone number
+	if (!/^\d{10}$/.test(phone)) {
+		alert('Please enter a valid 10-digit phone number!');
+		return;
+	}
+
 	// Simulate registration
-	alert(`Account created for ${name}!`);
+	alert(`Account created for ${name} (Username: ${username}, Phone: ${phone})!`);
 	localStorage.setItem('loggedIn', 'true');
+	localStorage.setItem('username', username);
 	window.location.href = './index.html';
 });
 
