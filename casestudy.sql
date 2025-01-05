@@ -22,7 +22,8 @@ create table users(
     user_pass varchar(50) not null,
     email varchar(100),
     user_role varchar(10) not null,
-    user_status varchar(50) not null
+    user_status varchar(50) not null,
+    phone int not null
 );
 
 create table orders(
@@ -30,7 +31,8 @@ create table orders(
     user_ID int not null,
     foreign key (user_ID) references users(user_ID),
     orderDate date not null,
-    order_TotalAmount int 
+    order_TotalAmount int,
+    order_status varchar(50) not null
 );
 create table orderDetails(
 	orderDetail_ID int primary key,
